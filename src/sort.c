@@ -52,11 +52,11 @@ int main() {
     }
 
     clock_t start, end, total;
-    printf("STARTING SORTING... (%s)\n", SORTING_ALGO);
+    printf("STARTING SORTING... (%s sort)\n", SORTING_ALGO);
     start = clock();
     sort(arr, ARR_SIZE);
     end = clock();
 
     total = end - start;
-    printf("CYCLES: %ld (%f secs)\n", total, (1.0f*total/1.0f*CLOCKS_PER_SEC));
+    printf("CYCLES: %ld\n", total);
 }

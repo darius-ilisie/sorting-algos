@@ -1,13 +1,15 @@
-C = gcc
-OPT = -O3 -march=haswell -D
+CC = gcc
+OPT = -O1 -march=haswell -D
 EXE = sort.
 
 run:
-	python3 scripts/random_gen.py > bin/tmp
-	cd bin/
-	./$(EXE)QUICK
-
-	cd ../
-
+	python3 scripts/random_gen.py > tmp
+	bin/$(EXE)QUICK > stats.txt
+	bin/$(EXE)RADIX >> stats.txt
+	rm tmp
 build:
-	$(C) $(OPT)QUICK src/sort.c -o bin/$(EXE)QUICK
+	$(CC) $(OPT)QUICK src/sort.c -o bin/$(EXE)QUICK
+	$(CC) $(OPT)RADIX src/sort.c -o bin/$(EXE)RADIX
+
+all: build run
+	
