@@ -5,7 +5,7 @@ EXE = sort.
 run:
 	python3 scripts/random_gen.py > bin/tmp
 	cd bin/
-	./$(EXE).QUICK
+	./$(EXE)QUICK
 
 	cd ../
 

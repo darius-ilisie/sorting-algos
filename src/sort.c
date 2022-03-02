@@ -41,7 +41,7 @@ void sort(int arr[], int len) {
 #endif
 
 int main() {
-    FILE* fp = fopen(); //Hmm
+    FILE* fp = fopen("tmp", "r"); //Hmm
 
     int ARR_SIZE;
     fscanf(fp, "%d", &ARR_SIZE);
@@ -58,5 +58,5 @@ int main() {
     end = clock();
 
     total = end - start;
-    printf("CYCLES: %ld (%ld secs)\n", total, (total/CLOCKS_PER_SEC));
+    printf("CYCLES: %ld (%f secs)\n", total, (1.0f*total/1.0f*CLOCKS_PER_SEC));
 }
