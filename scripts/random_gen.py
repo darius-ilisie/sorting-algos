@@ -1,7 +1,8 @@
 import random
+from sys import argv
 
 LARGEST_NUMBER = 2147483647
-NUMBERS = 1000000
+NUMBERS = int(argv[1])
 
 with open("/dev/urandom", "rb") as f:
     s_bytes = f.read(4)

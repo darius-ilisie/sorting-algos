@@ -9,10 +9,10 @@
 #define SORTING_ALGO "Radix "
 
 #endif
-#ifdef BUCKET
+#ifdef INSERTION
 
-#include "libs/bucket.h"
-#define SORTING_ALGO "Bucket "
+#include "libs/insertion.h"
+#define SORTING_ALGO "Insertion "
 
 #endif
 #ifdef MERGE
@@ -46,7 +46,7 @@ int main() {
     int ARR_SIZE;
     fscanf(fp, "%d", &ARR_SIZE);
 
-    int arr[ARR_SIZE];
+    int* arr = malloc(ARR_SIZE*sizeof(int));
     for(int i = 0; i < ARR_SIZE; i++) {
         fscanf(fp, "%d", &arr[i]);
     }
@@ -58,5 +58,6 @@ int main() {
     end = clock();
 
     total = end - start;
+    printf("%d < %d < %d < %d < %d\n", arr[0], arr[1], arr[2], arr[3], arr[4]);
     printf("CYCLES: %ld\n", total);
 }

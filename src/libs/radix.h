@@ -1,6 +1,8 @@
 #ifndef RADIX_H_INCLUDED
 #define RADIX_H_INCLUDED
 
+#include <stdlib.h>
+
 static int _getMax(int arr[], int n)
 {
     int mx = arr[0];
@@ -12,7 +14,7 @@ static int _getMax(int arr[], int n)
 
 static void _countSort(int arr[], int n, int exp)
 {
-    int output[n];
+    int* output = malloc(n*sizeof(int));
     int i, count[10] = { 0 };
     for (i = 0; i < n; i++)
         count[(arr[i] / exp) % 10]++;
@@ -24,6 +26,7 @@ static void _countSort(int arr[], int n, int exp)
     }
     for (i = 0; i < n; i++)
         arr[i] = output[i];
+    free(output);
 }
 
 static void sort(int arr[], int n)
