@@ -13,7 +13,12 @@ random.seed(s_bytes)
 with open(FILENAME, "w") as f:
     f.write(f"{NUMBERS} ")
 
+arr = []
+for i in range(NUMBERS):
+    arr.append( int(random.random()*10000000000) % (LARGEST_NUMBER + 1) )
+arr[0:NUMBERS//2] = sorted(arr[0:NUMBERS//2])
+
 with open(FILENAME, "a") as f:
     for i in range(NUMBERS):
-        f.write("{} ".format(int(random.random()*10000000000) % (LARGEST_NUMBER + 1)))
+        f.write(f"{arr[i]} ")
 

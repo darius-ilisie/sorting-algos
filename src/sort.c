@@ -27,6 +27,12 @@
 #define SORTING_ALGO "Heap"
 
 #endif
+#ifdef BUBBLE
+
+#include "libs/bubble.h"
+#define SORTING_ALGO "Bubble "
+
+#endif
 #ifdef QUICK
 
 int __cmpfunc (const void * a, const void * b) {
@@ -40,8 +46,8 @@ void sort(int arr[], int len) {
 
 #endif
 
-int main() {
-    FILE* fp = fopen("tmp", "r"); //Hmm
+int main(int argc, char* argv[]) {
+    FILE* fp = fopen(argv[1], "r"); //Hmm
 
     int ARR_SIZE;
     fscanf(fp, "%d", &ARR_SIZE);
@@ -58,6 +64,7 @@ int main() {
     end = clock();
 
     total = end - start;
-    printf("%d < %d < %d < %d < %d\n", arr[0], arr[1], arr[2], arr[3], arr[4]);
-    printf("CYCLES: %ld\n", total);
+    printf("Check numbers:\n");
+    printf("%d | %d | %d | %d | %d\n", arr[0], arr[0xbadf00d%ARR_SIZE], arr[0xbadc0de%ARR_SIZE], arr[0xC0FFEE%ARR_SIZE], arr[ARR_SIZE-1]);
+    printf("CYCLES: %ld\n\n", total);
 }
